@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "ViewMortgage": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7044"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "httpPort": 31829,
+      "useSSL": false
+    }
+  }
+}
