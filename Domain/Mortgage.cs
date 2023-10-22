@@ -23,5 +23,8 @@ namespace Domain
         public byte[] TimeStamp { get; set; }
 
         public virtual Buyer Buyer { get; set; }
+
+        public int HouseID { get; set; }
+        public virtual House House { get; set; }
     }
 }

@@ -4,13 +4,13 @@ using Microsoft.Extensions.Logging;
 
 namespace AzureFunctions
 {
-    public class Function2
+    public class SendEmailFunction
     {
         private readonly ILogger _logger;
 
-        public Function2(ILoggerFactory loggerFactory)
+        public SendEmailFunction(ILoggerFactory loggerFactory)
         {
-            _logger = loggerFactory.CreateLogger<Function2>();
+            _logger = loggerFactory.CreateLogger<SendEmailFunction>();
         }
 
         [Function("Function2")]
@@ -20,4 +20,5 @@ namespace AzureFunctions
             _logger.LogInformation($"Next timer schedule at: {myTimer.ScheduleStatus.Next}");
         }
     }
+
 }

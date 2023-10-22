@@ -12,5 +12,22 @@ namespace DAL
         public BuyersContext(DbContextOptions<BuyersContext> options) : base(options)
         {
         }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<House>()
+                .HasOne(h => h.Mortgage)
+                .WithOne(m => m.House)
+                .HasForeignKey<Mortgage>(m => m.HouseID)
+                .IsRequired();
+
+            builder.Entity<Mortgage>()
+                .HasOne(m => m.House)
+                .WithOne(h => h.Mortgage)
+                .HasForeignKey<House>(h => h.MortgageID)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            base.OnModelCreating(builder);
+        }
     }
 }

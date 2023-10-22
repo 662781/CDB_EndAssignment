@@ -12,5 +12,10 @@ namespace Domain
         [Required]
         public double Price { get; set; }
 
+        public virtual Buyer Buyer { get; set; }
+
+        public int MortgageID { get; set; }
+        public virtual Mortgage Mortgage { get; set; }
+
     }
 }

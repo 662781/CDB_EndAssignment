@@ -3,6 +3,7 @@ using DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(BuyersContext))]
-    partial class BuyersContextModelSnapshot : ModelSnapshot
+    [Migration("20231022140510_4th")]
+    partial class _4th
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -119,7 +122,7 @@ namespace DAL.Migrations
             modelBuilder.Entity("Domain.House", b =>
                 {
                     b.HasOne("Domain.Buyer", "Buyer")
-                        .WithMany("Houses")
+                        .WithMany()
                         .HasForeignKey("BuyerID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -127,7 +130,7 @@ namespace DAL.Migrations
                     b.HasOne("Domain.Mortgage", "Mortgage")
                         .WithOne("House")
                         .HasForeignKey("Domain.House", "MortgageID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Buyer");
@@ -148,8 +151,6 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Domain.Buyer", b =>
                 {
-                    b.Navigation("Houses");
-
                     b.Navigation("Mortgages");
                 });
 

@@ -6,14 +6,14 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["ViewMortgage/ViewMortgage.csproj", "ViewMortgage/"]
-RUN dotnet restore "ViewMortgage/ViewMortgage.csproj"
+COPY ["AzureFunctions/AzureFunctions.csproj", "AzureFunctions/"]
+RUN dotnet restore "AzureFunctions/AzureFunctions.csproj"
 COPY . .
-WORKDIR "/src/ViewMortgage"
-RUN dotnet build "ViewMortgage.csproj" -c Release -o /app/build
+WORKDIR "/src/AzureFunctions"
+RUN dotnet build "AzureFunctions.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "ViewMortgage.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "AzureFunctions.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /home/site/wwwroot

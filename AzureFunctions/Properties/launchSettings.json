@@ -1,13 +1,13 @@
 {
   "profiles": {
-    "ViewMortgage": {
+    "AzureFunctions": {
       "commandName": "Project",
-      "commandLineArgs": "--port 7044"
+      "commandLineArgs": "--port 7066"
     },
     "Docker": {
       "commandName": "Docker",
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
-      "httpPort": 31829,
+      "httpPort": 31914,
       "useSSL": false
     }
   }
