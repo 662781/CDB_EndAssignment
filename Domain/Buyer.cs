@@ -16,6 +16,7 @@ namespace Domain
 
         //Use LazyLoading
         public virtual ICollection<Mortgage> Mortgages { get; set; }
+        public virtual ICollection<MortgageApplication> Applications { get; set; }
         public virtual ICollection<House> Houses { get; set; }
 
         //Use EagerLoading
