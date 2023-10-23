@@ -24,7 +24,8 @@ namespace Domain
 
         public virtual Buyer Buyer { get; set; }
 
+        [Required]
         public int HouseID { get; set; }
-        public virtual House House { get; set; }
+
     }
 }

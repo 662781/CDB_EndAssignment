@@ -1161,6 +1161,20 @@
         "runtime": {
           "bin/placeholder/Domain.dll": {}
         }
+      },
+      "Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "DAL": "1.0.0",
+          "Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Service.dll": {}
+        }
       }
     }
   },
@@ -3306,13 +3320,18 @@
       "type": "project",
       "path": "../Domain/Domain.csproj",
       "msbuildProject": "../Domain/Domain.csproj"
+    },
+    "Service/1.0.0": {
+      "type": "project",
+      "path": "../Service/Service.csproj",
+      "msbuildProject": "../Service/Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "DAL >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.12",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.12",
+      "Service >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.5.0"
     ]
   },
@@ -3343,8 +3362,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\bashu\\Documents\\Persoonlijk\\HBO Informatica\\Jaar 4\\Cloud Computing\\Cloud Databases\\Assignments\\CDB_EndAssignment\\DAL\\DAL.csproj": {
-              "projectPath": "C:\\Users\\bashu\\Documents\\Persoonlijk\\HBO Informatica\\Jaar 4\\Cloud Computing\\Cloud Databases\\Assignments\\CDB_EndAssignment\\DAL\\DAL.csproj"
+            "C:\\Users\\bashu\\Documents\\Persoonlijk\\HBO Informatica\\Jaar 4\\Cloud Computing\\Cloud Databases\\Assignments\\CDB_EndAssignment\\Service\\Service.csproj": {
+              "projectPath": "C:\\Users\\bashu\\Documents\\Persoonlijk\\HBO Informatica\\Jaar 4\\Cloud Computing\\Cloud Databases\\Assignments\\CDB_EndAssignment\\Service\\Service.csproj"
             }
           }
         }

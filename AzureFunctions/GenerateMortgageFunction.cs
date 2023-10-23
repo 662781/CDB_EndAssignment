@@ -19,8 +19,8 @@ namespace AzureFunctions
         public void Run([TimerTrigger("54 23 * * *")] MyInfo myTimer)
         {
             _mortgageService.GenerateOffers();
-            _logger.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
             _logger.LogInformation($"Mortgage Offers generated");
+            _logger.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
             _logger.LogInformation($"Next timer schedule at: {myTimer.ScheduleStatus.Next}");
         }
     }

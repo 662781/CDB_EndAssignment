@@ -14,13 +14,9 @@ namespace Domain
 
         public double MonthlyIncome { get; set; }
 
-        //Use LazyLoading
-        public virtual ICollection<Mortgage> Mortgages { get; set; }
-        public virtual ICollection<MortgageApplication> Applications { get; set; }
-        public virtual ICollection<House> Houses { get; set; }
+        public List<Mortgage> Mortgages { get; set; }
+        public List<MortgageApplication> Applications { get; set; }
 
-        //Use EagerLoading
-        //public List<Mortgage> Mortgages { get; set; }
 
     }
 }

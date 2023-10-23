@@ -1,4 +1,4 @@
-﻿using DAL;
+﻿using Service;
 using Domain;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,26 +8,22 @@ namespace WebAPI.Controllers
     [ApiController]
     public class HouseController : ControllerBase
     {
-        private readonly BuyersContext _db;
-        public HouseController(BuyersContext buyersContext)
+        private readonly HouseService _houseService;
+        public HouseController(HouseService houseService)
         {
-            _db = buyersContext;
+            _houseService = houseService;
         }
 
         [HttpGet("GetByPriceRange")]
-        public IActionResult GetHousesByPriceRange([FromQuery] float minPrice, [FromQuery] float maxPrice)
+        public IActionResult GetByPriceRange([FromQuery] float minPrice, [FromQuery] float maxPrice)
         {
-            var houses = _db.Houses
-                .Where(h => h.Price >= minPrice && h.Price <= maxPrice)
-                .ToList();
-
-            return Ok(houses);
+            return Ok(_houseService.GetByPriceRange(minPrice, maxPrice));
         }
 
-        [HttpGet("GetHouseById/{id}")]
-        public IActionResult GetHouseById(int id)
+        [HttpGet("GetById/{id}")]
+        public IActionResult GetById(int id)
         {
-            var house = _db.Houses.FirstOrDefault(h => h.ID == id);
+            House house = _houseService.GetById(id);
 
             if (house == null)
             {
@@ -37,18 +33,17 @@ namespace WebAPI.Controllers
             return Ok(house);
         }
 
-        [HttpPost("CreateHouse")]
-        public IActionResult CreateHouse([FromBody] House newHouse)
+        [HttpPost("Create")]
+        public IActionResult Create([FromBody] House newHouse)
         {
             if (newHouse == null)
             {
                 return BadRequest("Invalid data in the request body");
             }
 
-            _db.Houses.Add(newHouse);
-            _db.SaveChanges();
+            _houseService.Create(newHouse);
 
-            return CreatedAtAction("GetHouseById", new { id = newHouse.ID }, newHouse);
+            return CreatedAtAction("GetById", new { id = newHouse.ID }, newHouse);
         }
 
     }

@@ -58,21 +58,10 @@ namespace DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("BuyerID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MortgageID")
-                        .HasColumnType("int");
-
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("BuyerID");
-
-                    b.HasIndex("MortgageID")
-                        .IsUnique();
 
                     b.ToTable("Houses");
                 });
@@ -116,23 +105,28 @@ namespace DAL.Migrations
                     b.ToTable("Mortgages");
                 });
 
-            modelBuilder.Entity("Domain.House", b =>
+            modelBuilder.Entity("Domain.MortgageApplication", b =>
                 {
-                    b.HasOne("Domain.Buyer", "Buyer")
-                        .WithMany("Houses")
-                        .HasForeignKey("BuyerID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
-                    b.HasOne("Domain.Mortgage", "Mortgage")
-                        .WithOne("House")
-                        .HasForeignKey("Domain.House", "MortgageID")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Navigation("Buyer");
+                    b.Property<int>("BuyerID")
+                        .HasColumnType("int");
 
-                    b.Navigation("Mortgage");
+                    b.Property<int>("HouseID")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsPending")
+                        .HasColumnType("bit");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("BuyerID");
+
+                    b.ToTable("Applications");
                 });
 
             modelBuilder.Entity("Domain.Mortgage", b =>
@@ -146,17 +140,22 @@ namespace DAL.Migrations
                     b.Navigation("Buyer");
                 });
 
-            modelBuilder.Entity("Domain.Buyer", b =>
+            modelBuilder.Entity("Domain.MortgageApplication", b =>
                 {
-                    b.Navigation("Houses");
+                    b.HasOne("Domain.Buyer", "Buyer")
+                        .WithMany("Applications")
+                        .HasForeignKey("BuyerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Mortgages");
+                    b.Navigation("Buyer");
                 });
 
-            modelBuilder.Entity("Domain.Mortgage", b =>
+            modelBuilder.Entity("Domain.Buyer", b =>
                 {
-                    b.Navigation("House")
-                        .IsRequired();
+                    b.Navigation("Applications");
+
+                    b.Navigation("Mortgages");
                 });
 #pragma warning restore 612, 618
         }
