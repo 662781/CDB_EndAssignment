@@ -1,10 +1,10 @@
 ﻿using DAL;
 using Domain;
-using System.Security.Cryptography;
+using Service.Interfaces;
 
 namespace Service
 {
-    public class BuyerService
+    public class BuyerService :IBuyerService
     {
         private readonly BuyersContext _db;
 

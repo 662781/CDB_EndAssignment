@@ -1,9 +1,10 @@
 ﻿using DAL;
 using Domain;
+using Service.Interfaces;
 
 namespace Service
 {
-    public class MortgageApplicationService
+    public class MortgageApplicationService : IMortgageApplicationService
     {
         private readonly BuyersContext _db;
 
@@ -29,6 +30,13 @@ namespace Service
             newApplication.IsPending = true;
             _db.Applications.Add(newApplication);
             _db.SaveChanges();
+        }
+
+        public List<MortgageApplication> GetAllPending()
+        {
+            return _db.Applications
+                .Where(app => app.IsPending == true)
+                .ToList();
         }
     }
 }

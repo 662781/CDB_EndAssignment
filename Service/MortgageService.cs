@@ -1,23 +1,23 @@
 ﻿using DAL;
 using Domain;
+using Service.Interfaces;
 
 namespace Service
 {
-    public class MortgageService
+    public class MortgageService : IMortgageService
     {
         private readonly BuyersContext _db;
+        private readonly IMortgageApplicationService _applicationService;
 
-        public MortgageService(BuyersContext db)
+        public MortgageService(BuyersContext db, MortgageApplicationService applicationService)
         {
             _db = db;
+            _applicationService = applicationService;
         }
         
         public void GenerateOffers()
         {
-            // Retrieve pending mortgage applications
-            List<MortgageApplication> pendingApplications = _db.Applications
-                .Where(app => app.IsPending == true)
-                .ToList();
+            List<MortgageApplication> pendingApplications = _applicationService.GetAllPending();
 
             // Only continue if the list contains applications
             if (pendingApplications.Count > 0)
@@ -45,22 +45,22 @@ namespace Service
 
         }
 
-        private static double CalcDepositAmt(double income)
+        public double CalcDepositAmt(double income)
         {
             return 0.0;
         }
 
-        private static double CalcLoanAmt(double income)
+        public double CalcLoanAmt(double income)
         {
             return 0.0;
         }
 
-        private static int CalcLoanTermMonths(double income)
+        public int CalcLoanTermMonths(double income)
         {
             return 0;
         }
 
-        private static double CalcInterestRate(double income)
+        public double CalcInterestRate(double income)
         {
             return 0.0;
         }

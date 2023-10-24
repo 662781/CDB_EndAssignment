@@ -1,9 +1,10 @@
 ﻿using DAL;
 using Domain;
+using Service.Interfaces;
 
 namespace Service
 {
-    public class HouseService
+    public class HouseService : IHouseService
     {
         private readonly BuyersContext _db;
 
