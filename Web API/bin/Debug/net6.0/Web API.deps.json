@@ -8,9 +8,9 @@
     ".NETCoreApp,Version=v6.0": {
       "Web API/1.0.0": {
         "dependencies": {
-          "DAL": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "7.0.12",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.12",
+          "Service": "1.0.0",
           "Swashbuckle.AspNetCore": "6.5.0"
         },
         "runtime": {
@@ -696,6 +696,15 @@
         "runtime": {
           "Domain.dll": {}
         }
+      },
+      "Service/1.0.0": {
+        "dependencies": {
+          "DAL": "1.0.0",
+          "Domain": "1.0.0"
+        },
+        "runtime": {
+          "Service.dll": {}
+        }
       }
     }
   },
@@ -1166,6 +1175,11 @@
       "sha512": ""
     },
     "Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Service/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

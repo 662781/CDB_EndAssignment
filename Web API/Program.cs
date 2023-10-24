@@ -1,5 +1,6 @@
 using DAL;
 using Microsoft.EntityFrameworkCore;
+using Service;
 
 namespace WebApplicationEFDEmo
 {
@@ -17,6 +18,11 @@ namespace WebApplicationEFDEmo
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            builder.Services.AddScoped<HouseService>();
+            builder.Services.AddScoped<BuyerService>();
+            builder.Services.AddScoped<MortgageApplicationService>();
+            builder.Services.AddScoped<MortgageService>();
 
             var app = builder.Build();
 

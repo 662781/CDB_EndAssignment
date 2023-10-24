@@ -4,7 +4,7 @@ namespace Web_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MortgageController
+    public class MortgageController : ControllerBase
     {
     }
 }

@@ -94,3 +94,5 @@ C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Clou
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\obj\Debug\net6.0\Web API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Service.dll
+C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Service.pdb

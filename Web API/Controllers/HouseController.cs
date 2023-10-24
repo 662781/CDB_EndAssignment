@@ -17,20 +17,15 @@ namespace WebAPI.Controllers
         [HttpGet("GetByPriceRange")]
         public IActionResult GetByPriceRange([FromQuery] float minPrice, [FromQuery] float maxPrice)
         {
-            return Ok(_houseService.GetByPriceRange(minPrice, maxPrice));
+            List<House> houses = _houseService.GetByPriceRange(minPrice, maxPrice);
+            return houses.Count == 0 ? NotFound() : Ok(houses);
         }
 
         [HttpGet("GetById/{id}")]
         public IActionResult GetById(int id)
         {
             House house = _houseService.GetById(id);
-
-            if (house == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(house);
+            return house == null ? NotFound() : Ok(house);
         }
 
         [HttpPost("Create")]
