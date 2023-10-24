@@ -6,7 +6,7 @@ namespace Web_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BuyerController : ControllerBase
+    public class BuyerController : ControllerBase, IBuyerController
     {
         private readonly BuyerService _buyerService;
         public BuyerController(BuyerService buyerService)

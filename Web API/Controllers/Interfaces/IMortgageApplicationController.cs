@@ -6,11 +6,11 @@ namespace Web_API.Controllers
 {
     [Route("api/Application")]
     [ApiController]
-    public class MortgageApplicationController : ControllerBase
+    public class IMortgageApplicationController : ControllerBase
     {
 
         private readonly MortgageApplicationService _service;
-        public MortgageApplicationController(MortgageApplicationService service)
+        public IMortgageApplicationController(MortgageApplicationService service)
         {
             _service = service;
         }
@@ -31,7 +31,7 @@ namespace Web_API.Controllers
         }
 
         [HttpPost("Create")]
-        public IActionResult Create([FromBody] MortgageApplication newApplication)
+        public IActionResult Create([FromBody] CreateApplicationDTO newApplication)
         {
             if (newApplication == null)
             {
