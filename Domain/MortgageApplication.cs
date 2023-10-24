@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,10 +11,13 @@ namespace Domain
     {
         public int ID { get; set; }
 
+        [Required]
         public int HouseID { get; set; }
-
+        
+        [Required]
         public bool IsPending { get; set; }
-
-        public virtual Buyer Buyer { get; set; }
+        
+        [Required]
+        public int BuyerID { get; set; }
     }
 }

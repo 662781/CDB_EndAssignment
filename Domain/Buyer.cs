@@ -13,13 +13,12 @@ namespace Domain
         [Required]
         public string LastName { get; set; }
 
+        [Required]
         public double MonthlyIncome { get; set; }
 
-        [JsonIgnore]
-        public List<Mortgage> Mortgages { get; set; }
+        public virtual ICollection<Mortgage> Mortgages { get; set; }
 
-        [JsonIgnore]
-        public List<MortgageApplication> Applications { get; set; }
+        public virtual ICollection<MortgageApplication> Applications { get; set; }
 
 
     }

@@ -1,6 +1,8 @@
 ﻿using Domain;
 using Microsoft.AspNetCore.Mvc;
 using Service;
+using Service.Interfaces;
+
 
 namespace Web_API.Controllers
 {
@@ -9,7 +11,7 @@ namespace Web_API.Controllers
     public class MortgageApplicationController : ControllerBase
     {
 
-        private readonly MortgageApplicationService _service;
+        private readonly IMortgageApplicationService _service;
         public MortgageApplicationController(MortgageApplicationService service)
         {
             _service = service;

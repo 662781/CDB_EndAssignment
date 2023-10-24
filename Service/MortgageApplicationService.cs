@@ -16,7 +16,7 @@ namespace Service
         public List<MortgageApplication> GetAllByBuyerId(int id)
         {
             return _db.Applications
-                .Where(a => a.Buyer.ID == id)
+                .Where(a => a.BuyerID == id)
                 .ToList();
         }
 

@@ -1,6 +1,8 @@
 ﻿using Domain;
+using Domain.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Service;
+using Service.Interfaces;
 
 namespace Web_API.Controllers
 {
@@ -8,7 +10,7 @@ namespace Web_API.Controllers
     [ApiController]
     public class BuyerController : ControllerBase, IBuyerController
     {
-        private readonly BuyerService _buyerService;
+        private readonly IBuyerService _buyerService;
         public BuyerController(BuyerService buyerService)
         {
             _buyerService = buyerService;
@@ -28,14 +30,14 @@ namespace Web_API.Controllers
         }
 
         [HttpPost("Create")]
-        public IActionResult Create([FromBody] Buyer newBuyer)
+        public IActionResult Create([FromBody] CreateBuyerDTO buyerDTO)
         {
-            if (newBuyer == null)
+            if (buyerDTO == null)
             {
                 return BadRequest("Invalid data in the request body");
             }
 
-            _buyerService.Create(newBuyer);
+            Buyer newBuyer = _buyerService.Create(buyerDTO);
 
             return CreatedAtAction("GetById", new { id = newBuyer.ID }, newBuyer);
         }

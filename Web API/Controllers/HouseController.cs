@@ -1,6 +1,8 @@
 ﻿using Service;
 using Domain;
 using Microsoft.AspNetCore.Mvc;
+using Service.Interfaces;
+
 
 namespace WebAPI.Controllers
 {
@@ -8,7 +10,7 @@ namespace WebAPI.Controllers
     [ApiController]
     public class HouseController : ControllerBase
     {
-        private readonly HouseService _houseService;
+        private readonly IHouseService _houseService;
         public HouseController(HouseService houseService)
         {
             _houseService = houseService;
