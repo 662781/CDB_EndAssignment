@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Domain
 {
@@ -14,7 +15,10 @@ namespace Domain
 
         public double MonthlyIncome { get; set; }
 
+        [JsonIgnore]
         public List<Mortgage> Mortgages { get; set; }
+
+        [JsonIgnore]
         public List<MortgageApplication> Applications { get; set; }
 
 

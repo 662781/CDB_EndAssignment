@@ -31,7 +31,7 @@ namespace Web_API.Controllers
         }
 
         [HttpPost("Create")]
-        public IActionResult Create([FromBody] MortgageApplication newApplication)
+        public IActionResult Create([FromBody] CreateApplicationDTO newApplication)
         {
             if (newApplication == null)
             {
