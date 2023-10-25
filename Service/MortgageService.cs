@@ -7,39 +7,32 @@ namespace Service
     public class MortgageService : IMortgageService
     {
         private readonly BuyersContext _db;
-        private readonly IMortgageApplicationService _applicationService;
         private readonly IBuyerService _buyerService;
 
         public MortgageService(BuyersContext db, MortgageApplicationService applicationService, BuyerService buyerService)
         {
             _db = db;
-            _applicationService = applicationService;
             _buyerService = buyerService;
         }
-        
-        public void GenerateOffers()
+
+        public void GenerateOffers(List<MortgageApplication> pendingApplications)
         {
-            List<MortgageApplication> pendingApplications = _applicationService.GetAllPending();
 
-            // Only continue if the list contains applications
-            if (pendingApplications.Count > 0)
+            // Generate mortgage offers and store them in the database
+            foreach (MortgageApplication application in pendingApplications)
             {
-                // Generate mortgage offers and store them in the database
-                foreach (MortgageApplication application in pendingApplications)
+                Buyer currentBuyer = _buyerService.GetById(application.BuyerID);
+                Mortgage mortgage = new Mortgage
                 {
-                    Buyer currentBuyer = _buyerService.GetById(application.BuyerID);
-                    Mortgage mortgage = new Mortgage
-                    {
-                        DepositAmount = CalcDepositAmt(currentBuyer.MonthlyIncome),
-                        LoanAmount = CalcLoanAmt(currentBuyer.MonthlyIncome),
-                        LoanTermMonths = CalcLoanTermMonths(currentBuyer.MonthlyIncome),
-                        InterestRate = CalcInterestRate(currentBuyer.MonthlyIncome),
-                        HouseID = application.HouseID
-                    };
+                    DepositAmount = CalcDepositAmt(currentBuyer.MonthlyIncome),
+                    LoanAmount = CalcLoanAmt(currentBuyer.MonthlyIncome),
+                    LoanTermMonths = CalcLoanTermMonths(currentBuyer.MonthlyIncome),
+                    InterestRate = CalcInterestRate(currentBuyer.MonthlyIncome),
+                    HouseID = application.HouseID
+                };
 
-                    _db.Mortgages.Add(mortgage);
-                    _db.SaveChanges();
-                }
+                _db.Mortgages.Add(mortgage);
+                _db.SaveChanges();
             }
         }
 

@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domain;
 
 namespace Service.Interfaces
 {
     public interface IMortgageService
     {
-        public void GenerateOffers();
+        public void GenerateOffers(List<MortgageApplication> pendingApplications);
 
         public void NotifyBuyers();
 

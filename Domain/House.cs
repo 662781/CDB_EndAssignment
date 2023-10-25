@@ -2,10 +2,8 @@
 
 namespace Domain
 {
-    public class House
+    public class House : BaseEntity
     {
-        public int ID { get; set; }
-
         [Required]
         public string Address { get; set; }
 

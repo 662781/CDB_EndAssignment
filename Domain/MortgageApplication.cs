@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    public class MortgageApplication
+    public class MortgageApplication : BaseEntity
     {
-        public int ID { get; set; }
-
         [Required]
         public int HouseID { get; set; }
         

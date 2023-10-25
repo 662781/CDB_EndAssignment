@@ -3,10 +3,8 @@ using System.Text.Json.Serialization;
 
 namespace Domain
 {
-    public class Buyer
+    public class Buyer : BaseEntity
     {
-        public int ID { get; set; }
-
         [MaxLength(60)]
         public string FirstName { get; set; }
 
@@ -21,7 +19,6 @@ namespace Domain
 
         [JsonIgnore]
         public virtual ICollection<MortgageApplication> Applications { get; set; }
-
 
     }
 }

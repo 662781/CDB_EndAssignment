@@ -2,10 +2,8 @@
 
 namespace Domain
 {
-    public class Mortgage
+    public class Mortgage : BaseEntity
     {
-        public int ID { get; set; }
-
         [Required]
         public double DepositAmount { get; set; }
 

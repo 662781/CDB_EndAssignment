@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "lBbp4wvAuUM7y7zD9WQ3dPnM4Mz8w6y5B5Q45aVxbYYfFdaL7y7VOJ+32ZUJ4yHkybIR74HD/N2KKCns20Il5A==",
+  "dgSpecHash": "h51SF7rtcl8T0ZERAnJzq9k6mdfiU33A93lC8m138kNRj/PnDCaZy8leXKf4AhEnkrYAhSH5nsq6wME24EqFqw==",
   "success": true,
   "projectFilePath": "C:\\Users\\bashu\\Documents\\Persoonlijk\\HBO Informatica\\Jaar 4\\Cloud Computing\\Cloud Databases\\Assignments\\CDB_EndAssignment\\Web API\\Web API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bashu\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\bashu\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
+    "C:\\Users\\bashu\\.nuget\\packages\\fluentvalidation\\11.8.0\\fluentvalidation.11.8.0.nupkg.sha512",
     "C:\\Users\\bashu\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\bashu\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\bashu\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

@@ -16,7 +16,7 @@ namespace AzureFunctions
             _mortgageService = mortgageService;
         }
 
-        [Function("Function2")]
+        [Function("SendEmailFunction")]
         public void Run([TimerTrigger("59 23 * * *")] MyInfo myTimer)
         {
             _mortgageService.NotifyBuyers();
