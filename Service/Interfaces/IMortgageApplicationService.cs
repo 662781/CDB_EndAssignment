@@ -15,6 +15,6 @@ namespace Service.Interfaces
         
         public List<MortgageApplication> GetAllPending();
 
-        public void Create(MortgageApplication newApplication);
+        public MortgageApplication Create(CreateApplicationDTO applicationDTO);
     }
 }

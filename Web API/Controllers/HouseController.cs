@@ -2,7 +2,7 @@
 using Domain;
 using Microsoft.AspNetCore.Mvc;
 using Service.Interfaces;
-
+using Domain.DTO;
 
 namespace WebAPI.Controllers
 {
@@ -31,14 +31,14 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("Create")]
-        public IActionResult Create([FromBody] House newHouse)
+        public IActionResult Create([FromBody] CreateHouseDTO houseDTO)
         {
-            if (newHouse == null)
+            if (houseDTO == null)
             {
                 return BadRequest("Invalid data in the request body");
             }
 
-            _houseService.Create(newHouse);
+            House newHouse = _houseService.Create(houseDTO);
 
             return CreatedAtAction("GetById", new { id = newHouse.ID }, newHouse);
         }

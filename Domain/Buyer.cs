@@ -5,13 +5,10 @@ namespace Domain
 {
     public class Buyer : BaseEntity
     {
-        [MaxLength(60)]
         public string FirstName { get; set; }
 
-        [Required]
         public string LastName { get; set; }
 
-        [Required]
         public double MonthlyIncome { get; set; }
 
         [JsonIgnore]

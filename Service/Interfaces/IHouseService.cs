@@ -1,4 +1,5 @@
 ﻿using Domain;
+using Domain.DTO;
 
 namespace Service.Interfaces
 {
@@ -8,6 +9,6 @@ namespace Service.Interfaces
 
         public House GetById(int id);
 
-        public void Create(House newHouse);
+        public House Create(CreateHouseDTO houseDTO);
     }
 }

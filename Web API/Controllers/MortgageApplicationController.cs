@@ -33,14 +33,14 @@ namespace Web_API.Controllers
         }
 
         [HttpPost("Create")]
-        public IActionResult Create([FromBody] MortgageApplication newApplication)
+        public IActionResult Create([FromBody] CreateApplicationDTO applicationDTO)
         {
-            if (newApplication == null)
+            if (applicationDTO == null)
             {
                 return BadRequest("Invalid data in the request body");
             }
 
-            _service.Create(newApplication);
+            MortgageApplication newApplication = _service.Create(applicationDTO);
 
             return CreatedAtAction("GetById", new { id = newApplication.ID }, newApplication);
         }

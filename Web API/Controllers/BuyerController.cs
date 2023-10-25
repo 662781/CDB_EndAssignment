@@ -20,13 +20,7 @@ namespace Web_API.Controllers
         public IActionResult GetById(int id)
         {
             Buyer buyer = _buyerService.GetById(id);
-
-            if (buyer == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(buyer);
+            return buyer == null ? NotFound() : Ok(buyer);
         }
 
         [HttpPost("Create")]

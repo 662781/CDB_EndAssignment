@@ -3,6 +3,7 @@ using DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(BuyersContext))]
-    partial class BuyersContextModelSnapshot : ModelSnapshot
+    [Migration("20231025134504_2nd")]
+    partial class _2nd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -102,9 +105,6 @@ namespace DAL.Migrations
 
                     b.HasIndex("BuyerID");
 
-                    b.HasIndex("HouseID")
-                        .IsUnique();
-
                     b.ToTable("Mortgages");
                 });
 
@@ -140,15 +140,7 @@ namespace DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.House", "House")
-                        .WithOne("Mortgage")
-                        .HasForeignKey("Domain.Mortgage", "HouseID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Buyer");
-
-                    b.Navigation("House");
                 });
 
             modelBuilder.Entity("Domain.MortgageApplication", b =>
@@ -167,12 +159,6 @@ namespace DAL.Migrations
                     b.Navigation("Applications");
 
                     b.Navigation("Mortgages");
-                });
-
-            modelBuilder.Entity("Domain.House", b =>
-                {
-                    b.Navigation("Mortgage")
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

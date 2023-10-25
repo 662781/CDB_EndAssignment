@@ -1,14 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Domain
 {
     public class House : BaseEntity
     {
-        [Required]
         public string Address { get; set; }
 
-        [Required]
         public double Price { get; set; }
+
+        [JsonIgnore]
+        public virtual Mortgage Mortgage { get; set; }
 
     }
 }

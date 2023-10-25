@@ -1,5 +1,6 @@
 ﻿using DAL;
 using Domain;
+using Domain.DTO;
 using Service.Interfaces;
 
 namespace Service
@@ -25,10 +26,16 @@ namespace Service
             return _db.Houses.FirstOrDefault(h => h.ID == id);
         }
 
-        public void Create(House newHouse)
+        public House Create(CreateHouseDTO houseDTO)
         {
+            House newHouse = new House()
+            {
+                Address = houseDTO.Address,
+                Price = houseDTO.Price
+            };
             _db.Houses.Add(newHouse);
             _db.SaveChanges();
+            return newHouse;
         }
     }
 }

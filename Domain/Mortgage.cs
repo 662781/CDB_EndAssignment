@@ -4,26 +4,22 @@ namespace Domain
 {
     public class Mortgage : BaseEntity
     {
-        [Required]
         public double DepositAmount { get; set; }
 
-        [Required]
         public double LoanAmount { get; set; }
 
-        [Required]
         public int LoanTermMonths { get; set; }
 
-        [Required]
         public double InterestRate { get; set; }
 
-        [Required]
-        [Timestamp,DataType("timestamp")]
-        public byte[] TimeStamp { get; set; }
+        public byte[] Created { get; set; }
+
+        public int BuyerID { get; set; }
 
         public virtual Buyer Buyer { get; set; }
 
-        [Required]
         public int HouseID { get; set; }
+        public virtual House House { get; set; }
 
     }
 }

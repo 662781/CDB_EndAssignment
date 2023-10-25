@@ -8,6 +8,7 @@ C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Clou
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Web API.pdb
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Azure.Core.dll
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Azure.Identity.dll
+C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\FluentValidation.dll
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Humanizer.dll
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
@@ -34,9 +35,13 @@ C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Clou
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Microsoft.OpenApi.dll
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Microsoft.SqlServer.Server.dll
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Mono.TextTemplating.dll
+C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\System.CodeDom.dll
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\System.Drawing.Common.dll
@@ -63,6 +68,8 @@ C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Clou
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\DAL.dll
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Domain.dll
+C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Service.dll
+C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Service.pdb
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\DAL.pdb
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Domain.pdb
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\obj\Debug\net6.0\Web API.csproj.AssemblyReference.cache
@@ -70,6 +77,7 @@ C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Clou
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\obj\Debug\net6.0\Web API.AssemblyInfoInputs.cache
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\obj\Debug\net6.0\Web API.AssemblyInfo.cs
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\obj\Debug\net6.0\Web API.csproj.CoreCompileInputs.cache
+C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\obj\Debug\net6.0\Web API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\obj\Debug\net6.0\Web API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\obj\Debug\net6.0\Web API.RazorAssemblyInfo.cache
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\obj\Debug\net6.0\Web API.RazorAssemblyInfo.cs
@@ -89,10 +97,3 @@ C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Clou
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\obj\Debug\net6.0\Web API.pdb
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\obj\Debug\net6.0\Web API.genruntimeconfig.cache
 C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\obj\Debug\net6.0\ref\Web API.dll
-C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Microsoft.OpenApi.dll
-C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\obj\Debug\net6.0\Web API.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Service.dll
-C:\Users\bashu\Documents\Persoonlijk\HBO Informatica\Jaar 4\Cloud Computing\Cloud Databases\Assignments\CDB_EndAssignment\Web API\bin\Debug\net6.0\Service.pdb

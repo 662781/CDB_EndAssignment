@@ -25,11 +25,17 @@ namespace Service
             return _db.Applications.FirstOrDefault(h => h.ID == id);
         }
 
-        public void Create(MortgageApplication newApplication)
+        public MortgageApplication Create(CreateApplicationDTO applicationDTO)
         {
-            newApplication.IsPending = true;
-            _db.Applications.Add(newApplication);
+            MortgageApplication application = new MortgageApplication
+            {
+                HouseID = applicationDTO.HouseID,
+                IsPending = true,
+                BuyerID = applicationDTO.BuyerID
+            };
+            _db.Applications.Add(application);
             _db.SaveChanges();
+            return application;
         }
 
         public List<MortgageApplication> GetAllPending()

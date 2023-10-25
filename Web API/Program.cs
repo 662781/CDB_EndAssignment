@@ -1,9 +1,8 @@
 using DAL;
 using Microsoft.EntityFrameworkCore;
 using Service;
-using Service.Interfaces;
 
-namespace WebApplicationEFDEmo
+namespace WebAPI
 {
     public class Program
     {
