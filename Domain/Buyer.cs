@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Domain.BaseEntities;
 using System.Text.Json.Serialization;
 
 namespace Domain

@@ -43,7 +43,7 @@ namespace DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Buyers");
+                    b.ToTable("Buyers", (string)null);
                 });
 
             modelBuilder.Entity("Domain.House", b =>
@@ -63,7 +63,7 @@ namespace DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Houses");
+                    b.ToTable("Houses", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Mortgage", b =>
@@ -105,7 +105,7 @@ namespace DAL.Migrations
                     b.HasIndex("HouseID")
                         .IsUnique();
 
-                    b.ToTable("Mortgages");
+                    b.ToTable("Mortgages", (string)null);
                 });
 
             modelBuilder.Entity("Domain.MortgageApplication", b =>
@@ -129,7 +129,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("BuyerID");
 
-                    b.ToTable("Applications");
+                    b.ToTable("Applications", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Mortgage", b =>

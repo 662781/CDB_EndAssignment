@@ -10,7 +10,6 @@ namespace Web_API.Controllers
     [ApiController]
     public class MortgageApplicationController : ControllerBase
     {
-
         private readonly IMortgageApplicationService _service;
         public MortgageApplicationController(MortgageApplicationService service)
         {

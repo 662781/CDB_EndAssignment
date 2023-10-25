@@ -7,12 +7,10 @@ namespace Service
     public class MortgageService : IMortgageService
     {
         private readonly BuyersContext _db;
-        private readonly IBuyerService _buyerService;
 
-        public MortgageService(BuyersContext db, MortgageApplicationService applicationService, BuyerService buyerService)
+        public MortgageService(BuyersContext db, MortgageApplicationService applicationService)
         {
             _db = db;
-            _buyerService = buyerService;
         }
 
         public void GenerateOffers(List<MortgageApplication> pendingApplications)
@@ -21,13 +19,13 @@ namespace Service
             // Generate mortgage offers and store them in the database
             foreach (MortgageApplication application in pendingApplications)
             {
-                Buyer currentBuyer = _buyerService.GetById(application.BuyerID);
                 Mortgage mortgage = new Mortgage
                 {
-                    DepositAmount = CalcDepositAmt(currentBuyer.MonthlyIncome),
-                    LoanAmount = CalcLoanAmt(currentBuyer.MonthlyIncome),
-                    LoanTermMonths = CalcLoanTermMonths(currentBuyer.MonthlyIncome),
-                    InterestRate = CalcInterestRate(currentBuyer.MonthlyIncome),
+                    DepositAmount = CalcDepositAmt(application.Buyer.MonthlyIncome),
+                    LoanAmount = CalcLoanAmt(application.Buyer.MonthlyIncome),
+                    LoanTermMonths = CalcLoanTermMonths(application.Buyer.MonthlyIncome),
+                    InterestRate = CalcInterestRate(application.Buyer.MonthlyIncome),
+                    BuyerID = application.BuyerID,
                     HouseID = application.HouseID
                 };
 

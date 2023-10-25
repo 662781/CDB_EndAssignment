@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Domain.BaseEntities;
 
 namespace Domain
 {
-    public class Mortgage : BaseEntity
+    public class Mortgage : MortgageBase
     {
         public double DepositAmount { get; set; }
 
@@ -14,11 +15,8 @@ namespace Domain
 
         public byte[] Created { get; set; }
 
-        public int BuyerID { get; set; }
-
         public virtual Buyer Buyer { get; set; }
 
-        public int HouseID { get; set; }
         public virtual House House { get; set; }
 
     }
