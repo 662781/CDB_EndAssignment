@@ -1,4 +1,4 @@
-﻿using Domain.BaseEntities;
+﻿using AzureFunctions.Domain.BaseEntities;
 using System.Text.Json.Serialization;
 
 namespace AzureFunctions.Domain

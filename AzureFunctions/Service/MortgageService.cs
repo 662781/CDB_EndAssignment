@@ -2,6 +2,7 @@
 using AzureFunctions.DAL.Repositories.Interfaces;
 using AzureFunctions.Domain;
 using AzureFunctions.Service.Interfaces;
+
 namespace AzureFunctions.Service
 {
     public class MortgageService : IMortgageService
