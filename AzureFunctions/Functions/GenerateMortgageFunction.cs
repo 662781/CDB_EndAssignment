@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 using Service;
 using Service.Interfaces;
 
-namespace AzureFunctions
+namespace AzureFunctions.Functions
 {
     public class GenerateMortgageFunction
     {

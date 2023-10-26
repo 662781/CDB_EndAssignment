@@ -3,7 +3,7 @@ using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 using Service;
 
-namespace AzureFunctions
+namespace AzureFunctions.Functions
 {
     public class SendEmailFunction
     {

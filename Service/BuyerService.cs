@@ -1,22 +1,23 @@
-﻿using DAL;
-using Domain;
+﻿using Domain;
 using Domain.DTO;
 using Service.Interfaces;
+using DAL.Repositories;
+using DAL.Repositories.Interfaces;
 
 namespace Service
 {
-    public class BuyerService :IBuyerService
+    public class BuyerService : IBuyerService
     {
-        private readonly BuyersContext _db;
+        private readonly IBuyerRepo _buyerRepo;
 
-        public BuyerService(BuyersContext db)
+        public BuyerService(BuyerRepo buyerRepo)
         {
-            _db = db;
+            _buyerRepo = buyerRepo;
         }
 
         public Buyer GetById(int id)
         {
-            return _db.Buyers.FirstOrDefault(b => b.ID == id);
+            return _buyerRepo.GetById(id);
         }
 
         public Buyer Create(CreateBuyerDTO buyerDTO)
@@ -27,9 +28,7 @@ namespace Service
                 LastName = buyerDTO.LastName,
                 MonthlyIncome = buyerDTO.MonthlyIncome
             };
-            _db.Buyers.Add(buyer);
-            _db.SaveChanges();
-            return buyer;
+            return _buyerRepo.Create(buyer);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using DAL;
+﻿using DAL.Repositories.Interfaces;
 using Domain;
 using Service.Interfaces;
 
@@ -6,23 +6,21 @@ namespace Service
 {
     public class MortgageApplicationService : IMortgageApplicationService
     {
-        private readonly BuyersContext _db;
+        private readonly IMortgageApplicationRepo _applicationRepo;
 
-        public MortgageApplicationService(BuyersContext db)
+        public MortgageApplicationService(IMortgageApplicationRepo applicationRepository)
         {
-            _db = db;
+            _applicationRepo = applicationRepository;
         }
 
         public List<MortgageApplication> GetAllByBuyerId(int id)
         {
-            return _db.Applications
-                .Where(a => a.BuyerID == id)
-                .ToList();
+            return _applicationRepo.GetAllByBuyerId(id);
         }
 
         public MortgageApplication GetById(int id)
         {
-            return _db.Applications.FirstOrDefault(h => h.ID == id);
+            return _applicationRepo.GetById(id);
         }
 
         public MortgageApplication Create(CreateApplicationDTO applicationDTO)
@@ -33,16 +31,12 @@ namespace Service
                 IsPending = true,
                 BuyerID = applicationDTO.BuyerID
             };
-            _db.Applications.Add(application);
-            _db.SaveChanges();
-            return application;
+            return _applicationRepo.Create(application);
         }
 
         public List<MortgageApplication> GetAllPending()
         {
-            return _db.Applications
-                .Where(app => app.IsPending == true)
-                .ToList();
+            return _applicationRepo.GetAllPending();
         }
     }
 }

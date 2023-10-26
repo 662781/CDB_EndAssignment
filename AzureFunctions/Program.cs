@@ -1,16 +1,19 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Service.Interfaces;
-using Service;
+using AzureFunctions.DAL;
+using Microsoft.Extensions.Configuration;
 
 var host = new HostBuilder()
     .ConfigureFunctionsWorkerDefaults()
-    //.ConfigureServices(services =>
-    //{
-    //    services.AddSingleton<IMortgageService, MortgageService>();
-    //    services.AddSingleton<IMortgageApplicationService, MortgageApplicationService>();
-    //    services.AddSingleton<IBuyerService, BuyerService>();
-    //})
+    .ConfigureServices((context, services) =>
+    {
+        // Add your database context configuration here
+        services.AddDbContext<MortgageContext>(options =>
+        {
+            options.UseSqlServer(context.Configuration.GetConnectionString("DefaultConnection"));
+        });
+    })
     .Build();
 
 host.Run();
