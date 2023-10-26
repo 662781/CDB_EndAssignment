@@ -1,8 +1,8 @@
-using Domain;
+using AzureFunctions.Domain;
+using AzureFunctions.Service;
+using AzureFunctions.Service.Interfaces;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
-using Service;
-using Service.Interfaces;
 
 namespace AzureFunctions.Functions
 {

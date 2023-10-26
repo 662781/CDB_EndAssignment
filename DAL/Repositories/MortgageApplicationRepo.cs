@@ -34,12 +34,5 @@ namespace DAL.Repositories
             _db.SaveChanges();
             return application;
         }
-
-        public List<MortgageApplication> GetAllPending()
-        {
-            return _db.Applications
-                .Where(app => app.IsPending == true)
-                .ToList();
-        }
     }
 }

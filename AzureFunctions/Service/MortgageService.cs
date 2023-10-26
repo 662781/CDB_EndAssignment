@@ -1,21 +1,20 @@
-﻿using DAL;
-using Domain;
-using Service.Interfaces;
-
-namespace Service
+﻿using AzureFunctions.DAL.Repositories;
+using AzureFunctions.DAL.Repositories.Interfaces;
+using AzureFunctions.Domain;
+using AzureFunctions.Service.Interfaces;
+namespace AzureFunctions.Service
 {
     public class MortgageService : IMortgageService
     {
-        private readonly BuyersContext _db;
+        private readonly IMortgageRepo _mortgageRepo;
 
-        public MortgageService(BuyersContext db, MortgageApplicationService applicationService)
+        public MortgageService(MortgageRepo mortgageRepo)
         {
-            _db = db;
+            _mortgageRepo = mortgageRepo;
         }
-
-        public void GenerateOffers(List<MortgageApplication> pendingApplications)
+        public List<Mortgage> GenerateOffers(List<MortgageApplication> pendingApplications)
         {
-
+            List<Mortgage> newMortgages = new List<Mortgage>();
             // Generate mortgage offers and store them in the database
             foreach (MortgageApplication application in pendingApplications)
             {
@@ -29,9 +28,11 @@ namespace Service
                     HouseID = application.HouseID
                 };
 
-                _db.Mortgages.Add(mortgage);
-                _db.SaveChanges();
+                newMortgages.Add(mortgage);
+                _mortgageRepo.Create(mortgage);
             }
+
+            return newMortgages;
         }
 
         public void NotifyBuyers()

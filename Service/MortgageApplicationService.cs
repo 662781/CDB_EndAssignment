@@ -1,4 +1,5 @@
-﻿using DAL.Repositories.Interfaces;
+﻿using DAL.Repositories;
+using DAL.Repositories.Interfaces;
 using Domain;
 using Service.Interfaces;
 
@@ -8,7 +9,7 @@ namespace Service
     {
         private readonly IMortgageApplicationRepo _applicationRepo;
 
-        public MortgageApplicationService(IMortgageApplicationRepo applicationRepository)
+        public MortgageApplicationService(MortgageApplicationRepo applicationRepository)
         {
             _applicationRepo = applicationRepository;
         }
@@ -34,9 +35,5 @@ namespace Service
             return _applicationRepo.Create(application);
         }
 
-        public List<MortgageApplication> GetAllPending()
-        {
-            return _applicationRepo.GetAllPending();
-        }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Domain;
+﻿using AzureFunctions.Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace AzureFunctions.DAL

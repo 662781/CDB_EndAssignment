@@ -1,10 +1,10 @@
-﻿using Domain;
+﻿using AzureFunctions.Domain;
 
-namespace Service.Interfaces
+namespace AzureFunctions.Service.Interfaces
 {
     public interface IMortgageService
     {
-        public void GenerateOffers(List<MortgageApplication> pendingApplications);
+        public List<Mortgage> GenerateOffers(List<MortgageApplication> pendingApplications);
 
         public void NotifyBuyers();
 

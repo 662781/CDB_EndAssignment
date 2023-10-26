@@ -1,4 +1,6 @@
 using DAL;
+using DAL.Repositories;
+using DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Service;
 
@@ -19,10 +21,15 @@ namespace WebAPI
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
 
+            // Add Services
             builder.Services.AddScoped<HouseService>();
             builder.Services.AddScoped<BuyerService>();
             builder.Services.AddScoped<MortgageApplicationService>();
-            builder.Services.AddScoped<MortgageService>();
+
+            // Add Repositories
+            builder.Services.AddScoped<HouseRepo>();
+            builder.Services.AddScoped<BuyerRepo>();
+            builder.Services.AddScoped<MortgageApplicationRepo>();
 
 
             var app = builder.Build();

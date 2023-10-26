@@ -1,14 +1,14 @@
-using System;
+using AzureFunctions.Service;
+using AzureFunctions.Service.Interfaces;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
-using Service;
 
 namespace AzureFunctions.Functions
 {
     public class SendEmailFunction
     {
         private readonly ILogger _logger;
-        private readonly MortgageService _mortgageService;
+        private readonly IMortgageService _mortgageService;
 
         public SendEmailFunction(ILoggerFactory loggerFactory, MortgageService mortgageService)
         {

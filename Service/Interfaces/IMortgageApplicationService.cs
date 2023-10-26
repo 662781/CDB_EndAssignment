@@ -12,8 +12,6 @@ namespace Service.Interfaces
         public List<MortgageApplication> GetAllByBuyerId(int id);
 
         public MortgageApplication GetById(int id);
-        
-        public List<MortgageApplication> GetAllPending();
 
         public MortgageApplication Create(CreateApplicationDTO applicationDTO);
     }
