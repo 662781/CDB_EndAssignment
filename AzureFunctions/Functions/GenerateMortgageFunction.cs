@@ -1,5 +1,4 @@
 using AzureFunctions.Domain;
-using AzureFunctions.Service;
 using AzureFunctions.Service.Interfaces;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
@@ -12,7 +11,7 @@ namespace AzureFunctions.Functions
         private readonly IMortgageService _mortgageService;
         private readonly IMortgageApplicationService _applicationService;
 
-        public GenerateMortgageFunction(ILoggerFactory loggerFactory, MortgageService mortgageService, MortgageApplicationService applicationService)
+        public GenerateMortgageFunction(ILoggerFactory loggerFactory, IMortgageService mortgageService, IMortgageApplicationService applicationService)
         {
             _logger = loggerFactory.CreateLogger<GenerateMortgageFunction>();
             _mortgageService = mortgageService;
@@ -26,29 +25,21 @@ namespace AzureFunctions.Functions
         [Function("GenerateMortgageFunction")]
         public void Run([TimerTrigger("*/20 * * * * *")] MyInfo myTimer)
         {
-            try
+            _logger.LogInformation($"Timer function started. Next schedule: {myTimer.ScheduleStatus.Next}");
+
+            List<MortgageApplication> pendingApplications = _applicationService.GetAllPending();
+
+            if (pendingApplications.Count > 0)
             {
-                _logger.LogInformation($"Timer function started. Next schedule: {myTimer.ScheduleStatus.Next}");
-
-                List<MortgageApplication> pendingApplications = _applicationService.GetAllPending();
-
-                if (pendingApplications.Count > 0)
-                {
-                    _mortgageService.GenerateOffers(pendingApplications);
-                    _logger.LogInformation("Mortgage offers generated.");
-                }
-                else
-                {
-                    _logger.LogInformation("No applications pending, no offers were created.");
-                }
-
-                _logger.LogInformation($"Timer function completed at: {DateTime.Now}");
+                _mortgageService.GenerateOffers(pendingApplications);
+                _logger.LogInformation("Mortgage offers generated.");
             }
-            catch (Exception ex)
+            else
             {
-                _logger.LogError(ex.Message);
+                _logger.LogInformation("No applications pending, no offers were created.");
             }
 
+            _logger.LogInformation($"Timer function completed at: {DateTime.Now}");
         }
     }
 
@@ -67,4 +58,5 @@ namespace AzureFunctions.Functions
 
         public DateTime LastUpdated { get; set; }
     }
+
 }

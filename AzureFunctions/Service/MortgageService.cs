@@ -9,7 +9,7 @@ namespace AzureFunctions.Service
     {
         private readonly IMortgageRepo _mortgageRepo;
 
-        public MortgageService(MortgageRepo mortgageRepo)
+        public MortgageService(IMortgageRepo mortgageRepo)
         {
             _mortgageRepo = mortgageRepo;
         }
