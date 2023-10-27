@@ -10,6 +10,10 @@ using Microsoft.Extensions.Hosting;
 
 var host = new HostBuilder()
     .ConfigureFunctionsWorkerDefaults()
+    .ConfigureAppConfiguration(config =>
+    {
+        config.AddJsonFile("local.settings.json", optional: false, reloadOnChange: true);
+    })
     .ConfigureServices((context, services) =>
     {
         services.AddDbContext<MortgageContext>(options =>

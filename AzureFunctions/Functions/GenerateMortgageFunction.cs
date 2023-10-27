@@ -25,9 +25,10 @@ namespace AzureFunctions.Functions
         [Function("GenerateMortgageFunction")]
         public void Run([TimerTrigger("*/20 * * * * *")] MyInfo myTimer)
         {
-            _logger.LogInformation($"Timer function started. Next schedule: {myTimer.ScheduleStatus.Next}");
+            _logger.LogInformation($"Timer function started. Next schedule: UNKNOWN");
+            //{myTimer.ScheduleStatus.Next}
 
-            List<MortgageApplication> pendingApplications = _applicationService.GetAllPending();
+            List<MortgageApplication> pendingApplications = _applicationService.GetAllPending(); 
 
             if (pendingApplications.Count > 0)
             {

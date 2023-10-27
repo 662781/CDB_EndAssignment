@@ -19,7 +19,7 @@ namespace AzureFunctions.Service
             // Generate mortgage offers and store them in the database
             foreach (MortgageApplication application in pendingApplications)
             {
-                Mortgage mortgage = new Mortgage
+                Mortgage mortgage = new Mortgage()
                 {
                     DepositAmount = CalcDepositAmt(application.Buyer.MonthlyIncome),
                     LoanAmount = CalcLoanAmt(application.Buyer.MonthlyIncome),
