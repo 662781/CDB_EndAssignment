@@ -1,5 +1,6 @@
 ﻿using AzureFunctions.DAL.Repositories.Interfaces;
 using AzureFunctions.Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace AzureFunctions.DAL.Repositories
 {
@@ -16,6 +17,7 @@ namespace AzureFunctions.DAL.Repositories
         {
             return _db.Applications
                 .Where(app => app.IsPending == true)
+                .Include(app => app.Buyer)
                 .ToList();
         }
     }
