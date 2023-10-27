@@ -15,7 +15,7 @@ namespace AzureFunctions.Domain
         public virtual ICollection<Mortgage> Mortgages { get; set; }
 
         [JsonIgnore]
-        public List<MortgageApplication> Applications { get; set; }
+        public virtual ICollection<MortgageApplication> Applications { get; set; }
 
     }
 }
