@@ -18,6 +18,7 @@ namespace DAL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MonthlyIncome = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
@@ -45,9 +46,9 @@ namespace DAL.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    HouseID = table.Column<int>(type: "int", nullable: false),
                     IsPending = table.Column<bool>(type: "bit", nullable: false),
-                    BuyerID = table.Column<int>(type: "int", nullable: false)
+                    BuyerID = table.Column<int>(type: "int", nullable: false),
+                    HouseID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -70,7 +71,7 @@ namespace DAL.Migrations
                     LoanAmount = table.Column<double>(type: "float", nullable: false),
                     LoanTermMonths = table.Column<int>(type: "int", nullable: false),
                     InterestRate = table.Column<double>(type: "float", nullable: false),
-                    TimeStamp = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: false),
+                    Created = table.Column<byte[]>(type: "timestamp", nullable: false, defaultValueSql: "GetDate() "),
                     BuyerID = table.Column<int>(type: "int", nullable: false),
                     HouseID = table.Column<int>(type: "int", nullable: false)
                 },
@@ -81,6 +82,12 @@ namespace DAL.Migrations
                         name: "FK_Mortgages_Buyers_BuyerID",
                         column: x => x.BuyerID,
                         principalTable: "Buyers",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Mortgages_Houses_HouseID",
+                        column: x => x.HouseID,
+                        principalTable: "Houses",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -94,6 +101,12 @@ namespace DAL.Migrations
                 name: "IX_Mortgages_BuyerID",
                 table: "Mortgages",
                 column: "BuyerID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Mortgages_HouseID",
+                table: "Mortgages",
+                column: "HouseID",
+                unique: true);
         }
 
         /// <inheritdoc />
@@ -103,13 +116,13 @@ namespace DAL.Migrations
                 name: "Applications");
 
             migrationBuilder.DropTable(
-                name: "Houses");
-
-            migrationBuilder.DropTable(
                 name: "Mortgages");
 
             migrationBuilder.DropTable(
                 name: "Buyers");
+
+            migrationBuilder.DropTable(
+                name: "Houses");
         }
     }
 }

@@ -52,6 +52,10 @@ namespace DAL
                 .IsRequired();
 
             modelBuilder.Entity<Buyer>()
+                .Property(b => b.Email)
+                .IsRequired();
+
+            modelBuilder.Entity<Buyer>()
                 .Property(b => b.MonthlyIncome)
                 .IsRequired();
 

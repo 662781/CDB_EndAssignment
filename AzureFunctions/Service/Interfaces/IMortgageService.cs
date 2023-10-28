@@ -10,6 +10,8 @@ namespace AzureFunctions.Service.Interfaces
 
         public List<Mortgage> GetAllFromToday();
 
+        public void SendEmail(Mortgage m);
+
         protected double CalcDepositAmt(double income);
 
         protected double CalcLoanAmt(double income);

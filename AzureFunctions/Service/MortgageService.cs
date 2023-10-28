@@ -1,9 +1,8 @@
-﻿using AzureFunctions.DAL.Repositories;
-using AzureFunctions.DAL.Repositories.Interfaces;
+﻿using AzureFunctions.DAL.Repositories.Interfaces;
 using AzureFunctions.Domain;
 using AzureFunctions.Service.Interfaces;
-using System.Net.Mail;
 using System.Net;
+using System.Net.Mail;
 
 namespace AzureFunctions.Service
 {
@@ -36,7 +35,11 @@ namespace AzureFunctions.Service
 
         public void NotifyBuyers()
         {
-
+            List<Mortgage> todaysMortgages = GetAllFromToday();
+            foreach(Mortgage m in todaysMortgages)
+            {
+                SendEmail(m);
+            }
         }
 
         public List<Mortgage> GetAllFromToday()
@@ -44,37 +47,37 @@ namespace AzureFunctions.Service
            return _mortgageRepo.GetAllFromToday();
         }
 
-        private void SendEmail(Buyer buyer)
+        public void SendEmail(Mortgage m)
         {
-            string smtpServer = "your-smtp-server.com";
-            int smtpPort = 587;
-            string smtpUsername = "your-username";
-            string smtpPassword = "your-password";
+            //string smtpServer = "your-smtp-server.com";
+            //int smtpPort = 587;
+            //string smtpUsername = "your-username";
+            //string smtpPassword = "your-password";
 
-            SmtpClient smtpClient = new SmtpClient(smtpServer)
-            {
-                Port = smtpPort,
-                Credentials = new NetworkCredential(smtpUsername, smtpPassword),
-                EnableSsl = true,
-            };
+            //SmtpClient smtpClient = new SmtpClient(smtpServer)
+            //{
+            //    Port = smtpPort,
+            //    Credentials = new NetworkCredential(smtpUsername, smtpPassword),
+            //    EnableSsl = true,
+            //};
 
-            // Create the email message
-            MailMessage message = new MailMessage
-            {
-                From = new MailAddress("your-email@example.com"),
-                Subject = "Your Mortgage Offer",
-                IsBodyHtml = true,
-                Body = $"Dear {buyer.FirstName} {buyer.LastName},\n\n" +
-                       $"We are pleased to offer you the following mortgage:\n\n" +
-                       $"Offer Details: {mortgageOffer.Details}\n\n" +
-                       "Thank you for choosing our services.",
-            };
+            //// Create the email message
+            //MailMessage message = new MailMessage
+            //{
+            //    From = new MailAddress("your-email@example.com"),
+            //    Subject = "Your Mortgage Offer",
+            //    IsBodyHtml = true,
+            //    Body = $"Dear {m.Buyer.FirstName} {m.Buyer.LastName},\n\n" +
+            //           $"We are pleased to offer you the following mortgage:\n\n" +
+            //           $"Offer Details: {m}\n\n" +
+            //           "Thank you for choosing our services.",
+            //};
 
-            // Set the recipient email address
-            message.To.Add(buyer.Email);
+            //// Set the recipient email address
+            //message.To.Add(m.Buyer.Email);
 
-            // Send the email
-            smtpClient.Send(message);
+            //// Send the email
+            //smtpClient.Send(message);
         }
 
         public double CalcDepositAmt(double income)

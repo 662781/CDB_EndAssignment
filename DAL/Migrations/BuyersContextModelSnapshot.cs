@@ -16,7 +16,7 @@ namespace DAL.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.12")
+                .HasAnnotation("ProductVersion", "7.0.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -28,6 +28,10 @@ namespace DAL.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -43,7 +47,7 @@ namespace DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Buyers", (string)null);
+                    b.ToTable("Buyers");
                 });
 
             modelBuilder.Entity("Domain.House", b =>
@@ -63,7 +67,7 @@ namespace DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Houses", (string)null);
+                    b.ToTable("Houses");
                 });
 
             modelBuilder.Entity("Domain.Mortgage", b =>
@@ -105,7 +109,7 @@ namespace DAL.Migrations
                     b.HasIndex("HouseID")
                         .IsUnique();
 
-                    b.ToTable("Mortgages", (string)null);
+                    b.ToTable("Mortgages");
                 });
 
             modelBuilder.Entity("Domain.MortgageApplication", b =>
@@ -129,7 +133,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("BuyerID");
 
-                    b.ToTable("Applications", (string)null);
+                    b.ToTable("Applications");
                 });
 
             modelBuilder.Entity("Domain.Mortgage", b =>

@@ -1,6 +1,5 @@
 ﻿using AzureFunctions.DAL.Repositories.Interfaces;
 using AzureFunctions.Domain;
-using Google.Protobuf.WellKnownTypes;
 using Microsoft.EntityFrameworkCore;
 
 namespace AzureFunctions.DAL.Repositories
