@@ -9,7 +9,6 @@ namespace AzureFunctions.Domain
 
         public double Price { get; set; }
 
-        [JsonIgnore]
         public virtual Mortgage Mortgage { get; set; }
 
     }

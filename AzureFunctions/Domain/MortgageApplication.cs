@@ -7,7 +7,6 @@ namespace AzureFunctions.Domain
     {
         public bool IsPending { get; set; }
 
-        [JsonIgnore]
         public virtual Buyer Buyer { get; set; }
     }
 }
