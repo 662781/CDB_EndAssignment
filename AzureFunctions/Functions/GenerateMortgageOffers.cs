@@ -5,15 +5,15 @@ using Microsoft.Extensions.Logging;
 
 namespace AzureFunctions.Functions
 {
-    public class GenerateMortgageFunction
+    public class GenerateMortgageOffers
     {
         private readonly ILogger _logger;
         private readonly IMortgageService _mortgageService;
         private readonly IMortgageApplicationService _applicationService;
 
-        public GenerateMortgageFunction(ILoggerFactory loggerFactory, IMortgageService mortgageService, IMortgageApplicationService applicationService)
+        public GenerateMortgageOffers(ILoggerFactory loggerFactory, IMortgageService mortgageService, IMortgageApplicationService applicationService)
         {
-            _logger = loggerFactory.CreateLogger<GenerateMortgageFunction>();
+            _logger = loggerFactory.CreateLogger<GenerateMortgageOffers>();
             _mortgageService = mortgageService;
             _applicationService = applicationService;
         }
@@ -22,7 +22,7 @@ namespace AzureFunctions.Functions
         /// This Azure Functions timer-triggered function is responsible for generating mortgage offers based on pending applications and logging the results.
         /// </summary>
         /// <param name="myTimer">The timer trigger that specifies the schedule for running this function.</param>
-        [Function("GenerateMortgageFunction")]
+        [Function("GenerateMortgageOffers")]
         public void Run([TimerTrigger("*/20 * * * * *")] MyInfo myTimer)
         {
             _logger.LogInformation($"Timer function started. Next schedule: UNKNOWN");

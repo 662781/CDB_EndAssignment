@@ -6,18 +6,18 @@ using Microsoft.Extensions.Logging;
 
 namespace AzureFunctions.Functions
 {
-    public class SendEmailFunction
+    public class SendMortgageOffers
     {
         private readonly ILogger _logger;
         private readonly IMortgageService _mortgageService;
 
-        public SendEmailFunction(ILoggerFactory loggerFactory, IMortgageService mortgageService)
+        public SendMortgageOffers(ILoggerFactory loggerFactory, IMortgageService mortgageService)
         {
-            _logger = loggerFactory.CreateLogger<SendEmailFunction>();
+            _logger = loggerFactory.CreateLogger<SendMortgageOffers>();
             _mortgageService = mortgageService;
         }
 
-        [Function("SendEmailFunction")]
+        [Function("SendMortgageOffers")]
         public void Run([TimerTrigger("*/20 * * * * *")] MyInfo myTimer)
         {
             _logger.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
