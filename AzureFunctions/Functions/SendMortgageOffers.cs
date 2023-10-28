@@ -18,7 +18,7 @@ namespace AzureFunctions.Functions
         }
 
         [Function("SendMortgageOffers")]
-        public void Run([TimerTrigger("*/20 * * * * *")] MyInfo myTimer)
+        public void Run([TimerTrigger("0 59 23 * * *")] MyInfo myTimer)
         {
             _logger.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
             List<Mortgage> mortgages = _mortgageService.GetAllFromToday();

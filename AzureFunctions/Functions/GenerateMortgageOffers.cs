@@ -23,7 +23,7 @@ namespace AzureFunctions.Functions
         /// </summary>
         /// <param name="myTimer">The timer trigger that specifies the schedule for running this function.</param>
         [Function("GenerateMortgageOffers")]
-        public void Run([TimerTrigger("*/20 * * * * *")] MyInfo myTimer)
+        public void Run([TimerTrigger("0 54 23 * * *")] MyInfo myTimer)
         {
             _logger.LogInformation($"Timer function started. Next schedule: UNKNOWN");
             //{myTimer.ScheduleStatus.Next}
