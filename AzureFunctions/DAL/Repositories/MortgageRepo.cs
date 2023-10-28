@@ -20,9 +20,8 @@ namespace AzureFunctions.DAL.Repositories
 
         public List<Mortgage> GetAllFromToday()
         {
-            DateTime today = DateTime.Now.Date;
             return _db.Mortgages
-                .Where(m => new DateTime(BitConverter.ToInt64(m.Created, 0)) == today)
+                .Where(m => m.Created.Date == DateTime.Today)
                 .Include(m => m.Buyer)
                 .ToList();
         }

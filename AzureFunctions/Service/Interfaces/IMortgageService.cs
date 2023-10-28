@@ -6,7 +6,7 @@ namespace AzureFunctions.Service.Interfaces
     {
         public void GenerateOffers(List<MortgageApplication> pendingApplications);
 
-        public void NotifyBuyers();
+        public void NotifyBuyers(List<Mortgage> todaysMortgages);
 
         public List<Mortgage> GetAllFromToday();
 

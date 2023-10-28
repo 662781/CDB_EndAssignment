@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -71,7 +72,7 @@ namespace DAL.Migrations
                     LoanAmount = table.Column<double>(type: "float", nullable: false),
                     LoanTermMonths = table.Column<int>(type: "int", nullable: false),
                     InterestRate = table.Column<double>(type: "float", nullable: false),
-                    Created = table.Column<byte[]>(type: "timestamp", nullable: false, defaultValueSql: "GetDate() "),
+                    Created = table.Column<DateTime>(type: "DateTime", nullable: false, defaultValueSql: "GetDate() "),
                     BuyerID = table.Column<int>(type: "int", nullable: false),
                     HouseID = table.Column<int>(type: "int", nullable: false)
                 },

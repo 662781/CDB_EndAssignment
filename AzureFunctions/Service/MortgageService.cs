@@ -33,10 +33,9 @@ namespace AzureFunctions.Service
             }
         }
 
-        public void NotifyBuyers()
+        public void NotifyBuyers(List<Mortgage> todaysMortgages)
         {
-            List<Mortgage> todaysMortgages = GetAllFromToday();
-            foreach(Mortgage m in todaysMortgages)
+            foreach (Mortgage m in todaysMortgages)
             {
                 SendEmail(m);
             }
@@ -44,7 +43,7 @@ namespace AzureFunctions.Service
 
         public List<Mortgage> GetAllFromToday()
         {
-           return _mortgageRepo.GetAllFromToday();
+            return _mortgageRepo.GetAllFromToday();
         }
 
         public void SendEmail(Mortgage m)

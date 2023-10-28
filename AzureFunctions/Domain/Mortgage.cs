@@ -12,7 +12,7 @@ namespace AzureFunctions.Domain
 
         public double InterestRate { get; set; }
 
-        public byte[] Created { get; set; }
+        public DateTime Created { get; set; }
 
         public virtual Buyer Buyer { get; set; }
 

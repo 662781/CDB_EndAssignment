@@ -26,7 +26,8 @@ namespace Service
             {
                 FirstName = buyerDTO.FirstName,
                 LastName = buyerDTO.LastName,
-                MonthlyIncome = buyerDTO.MonthlyIncome
+                MonthlyIncome = buyerDTO.MonthlyIncome,
+                Email = buyerDTO.Email
             };
             return _buyerRepo.Create(buyer);
         }

@@ -33,7 +33,7 @@ namespace AzureFunctions.DAL
 
             modelBuilder.Entity<Mortgage>()
                 .Property(p => p.Created)
-                .HasColumnType("timestamp")
+                .HasColumnType("DateTime")
                 .HasDefaultValueSql("GetDate() ");
 
             modelBuilder.Entity<Mortgage>()

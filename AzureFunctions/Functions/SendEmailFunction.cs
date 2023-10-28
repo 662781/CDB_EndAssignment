@@ -1,5 +1,6 @@
 using AzureFunctions.Service;
 using AzureFunctions.Service.Interfaces;
+using AzureFunctions.Domain;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 
@@ -17,11 +18,20 @@ namespace AzureFunctions.Functions
         }
 
         [Function("SendEmailFunction")]
-        public void Run([TimerTrigger("59 23 * * *")] MyInfo myTimer)
+        public void Run([TimerTrigger("*/20 * * * * *")] MyInfo myTimer)
         {
             _logger.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
-            _mortgageService.NotifyBuyers();
-            _logger.LogInformation($"Emails send to buyers");
+            List<Mortgage> mortgages = _mortgageService.GetAllFromToday();
+            if (mortgages.Count > 0)
+            {
+                _mortgageService.NotifyBuyers(mortgages);
+                _logger.LogInformation($"Emails send to buyers");
+            }
+            else
+            {
+                _logger.LogInformation($"No mortgages found from today, no emails sent.");
+            }
+            
             _logger.LogInformation($"Next timer schedule at: UNKNOWN");
         }
     }
