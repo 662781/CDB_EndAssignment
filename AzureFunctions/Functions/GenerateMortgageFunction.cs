@@ -33,6 +33,7 @@ namespace AzureFunctions.Functions
             if (pendingApplications.Count > 0)
             {
                 _mortgageService.GenerateOffers(pendingApplications);
+                _applicationService.UpdateAllPendingToFalse(pendingApplications);
                 _logger.LogInformation("Mortgage offers generated.");
             }
             else

@@ -4,9 +4,11 @@ namespace AzureFunctions.Service.Interfaces
 {
     public interface IMortgageService
     {
-        public List<Mortgage> GenerateOffers(List<MortgageApplication> pendingApplications);
+        public void GenerateOffers(List<MortgageApplication> pendingApplications);
 
         public void NotifyBuyers();
+
+        public List<Mortgage> GetAllFromToday();
 
         protected double CalcDepositAmt(double income);
 

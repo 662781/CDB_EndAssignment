@@ -20,5 +20,16 @@ namespace AzureFunctions.DAL.Repositories
                 .Include(app => app.Buyer)
                 .ToList();
         }
+
+        public void UpdatePendingStatus(int id, bool newStatus)
+        {
+            MortgageApplication application = _db.Applications.FirstOrDefault(app => app.ID == id);
+
+            if (application != null)
+            {
+                application.IsPending = newStatus;
+                _db.SaveChanges();
+            }
+        }
     }
 }

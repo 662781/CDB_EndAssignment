@@ -18,5 +18,18 @@ namespace AzureFunctions.Service
         {
             return _applicationRepo.GetAllPending();
         }
+
+        public void UpdatePendingStatus(int id, bool newStatus)
+        {
+            _applicationRepo.UpdatePendingStatus(id, newStatus);
+        }
+
+        public void UpdateAllPendingToFalse(List<MortgageApplication> applications)
+        {
+            foreach (MortgageApplication app in applications)
+            {
+                UpdatePendingStatus(app.ID, false);
+            }
+        }
     }
 }

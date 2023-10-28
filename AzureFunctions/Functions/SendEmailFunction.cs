@@ -16,14 +16,14 @@ namespace AzureFunctions.Functions
             _mortgageService = mortgageService;
         }
 
-        //[Function("SendEmailFunction")]
-        //public void Run([TimerTrigger("59 23 * * *")] MyInfo myTimer)
-        //{
-        //    _mortgageService.NotifyBuyers();
-        //    _logger.LogInformation($"Emails send");
-        //    _logger.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
-        //    _logger.LogInformation($"Next timer schedule at: {myTimer.ScheduleStatus.Next}");
-        //}
+        [Function("SendEmailFunction")]
+        public void Run([TimerTrigger("59 23 * * *")] MyInfo myTimer)
+        {
+            _logger.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
+            _mortgageService.NotifyBuyers();
+            _logger.LogInformation($"Emails send to buyers");
+            _logger.LogInformation($"Next timer schedule at: UNKNOWN");
+        }
     }
 
 }
