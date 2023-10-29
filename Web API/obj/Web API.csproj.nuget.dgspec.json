@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[11.8.0, )"
             },
+            "Microsoft.Azure.Cosmos": {
+              "target": "Package",
+              "version": "[3.36.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.13, )"
